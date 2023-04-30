@@ -7,6 +7,7 @@
       "plaintext": false,
       "markdown": true
     },
+    "files.eol": "\n",
     "vim.incsearch": true,
     "vim.useSystemClipboard": true,
     "vim.insertModeKeyBindings": [

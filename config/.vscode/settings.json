@@ -1,0 +1,20 @@
+{
+    "editor.inlineSuggest.enabled": true,
+    "editor.minimap.enabled": false,
+    "github.copilot.enable": {
+      "*": true,
+      "yaml": false,
+      "plaintext": false,
+      "markdown": true
+    },
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.insertModeKeyBindings": [
+      {
+        "before": ["k", "j"],
+        "after": ["<Esc>"]
+      }
+    ],
+    "workbench.colorTheme": "Default Light+"
+  }
+  

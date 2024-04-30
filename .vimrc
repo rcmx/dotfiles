@@ -10,3 +10,8 @@ let mapleader = " "
 
 inoremap jj <Esc>
 
+map gd :vsc ReSharper.ReSharper_GotoDeclaration<CR>
+map gi :vsc Edit.GoToImplementation<CR>
+map ]] :vsc Edit.NextMethod<CR>
+map [[ :vsc Edit.PreviousMethod<CR>
+

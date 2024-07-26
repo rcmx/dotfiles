@@ -12,4 +12,5 @@ inoremap jj <Esc>
 noremap <C-u> <C-u>zz
 noremap <C-d> <C-d>zz
 
+nnoremap <leader>b :ls<cr>:b<space>
 

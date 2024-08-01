@@ -24,7 +24,7 @@ if exists('has_vsvim')
     nnoremap gcc :vsc Edit.ToggleLineComment<CR>
     nnoremap gr :vsc Edit.FindAllReferences<CR>
     nnoremap gp :vsc Edit.PeekDefinition<CR>
-    "vnoremap gc :vsc Edit.ToggleBlockComment<CR><Esc><Esc>
+    vnoremap gcc :vsc Edit.ToggleLineComment<CR>
 
     nnoremap <Leader>r :vsc Refactor.Rename<CR>
     nnoremap <Leader>e :vsc View.NextError<CR>

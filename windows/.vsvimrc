@@ -1,0 +1,3 @@
+let has_vsvim = 1
+so ~/.vimrc
+

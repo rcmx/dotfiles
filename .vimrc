@@ -3,6 +3,7 @@
 "set expandtab
 
 set clipboard=unnamed   " copy to system clipboard
+set relativenumber
 
 let mapleader = " "
 

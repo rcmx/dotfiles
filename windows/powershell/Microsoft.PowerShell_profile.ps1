@@ -1,5 +1,6 @@
 Import-Module posh-git
 
+function gb {git branch $args}
 function gd {git diff $args}
 function gs {git status $args}
 function gss {git status -s}

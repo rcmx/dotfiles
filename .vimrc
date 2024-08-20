@@ -28,6 +28,8 @@ if exists('is_vsvim')
     nnoremap gp :vsc Edit.PeekDefinition<CR>
     vnoremap gcc :vsc Edit.ToggleLineComment<CR>
 
+    nnoremap <C-T> :vsc View.NavigateBackward<CR>
+
     nnoremap <Leader>r :vsc Refactor.Rename<CR>
     nnoremap <Leader>e :vsc View.NextError<CR>
     nnoremap <Leader>E :vsc View.PreviousError<CR>

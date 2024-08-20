@@ -4,6 +4,7 @@
 
 set clipboard=unnamed   " copy to system clipboard
 set relativenumber
+set fileformat=unix
 
 let mapleader = " "
 
@@ -20,7 +21,7 @@ nnoremap <Leader>b :ls<CR>:b<Space>
 
 inoremap jj <Esc>
 
-if exists('has_vsvim')
+if exists('is_vsvim')
     nnoremap gi :vsc Edit.GoToImplementation<CR>
     nnoremap gcc :vsc Edit.ToggleLineComment<CR>
     nnoremap gr :vsc Edit.FindAllReferences<CR>

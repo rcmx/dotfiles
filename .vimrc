@@ -21,17 +21,21 @@ nnoremap <Leader>b :ls<CR>:b<Space>
 
 inoremap jj <Esc>
 
+if exists('g:vscode')
+    " VSCode extension
+endif
 if exists('is_vsvim')
-    nnoremap gi :vsc Edit.GoToImplementation<CR>
-    nnoremap gcc :vsc Edit.ToggleLineComment<CR>
-    nnoremap gr :vsc Edit.FindAllReferences<CR>
-    nnoremap gp :vsc Edit.PeekDefinition<CR>
-    vnoremap gcc :vsc Edit.ToggleLineComment<CR>
+    " VSStudio extension
+    nnoremap gi :vsc Edit.GoToImplementation
+    nnoremap gcc :vsc Edit.ToggleLineComment
+    nnoremap gr :vsc Edit.FindAllReferences
+    nnoremap gp :vsc Edit.PeekDefinition
+    vnoremap gcc :vsc Edit.ToggleLineComment
 
-    nnoremap <C-T> :vsc View.NavigateBackward<CR>
+    nnoremap <C-T> :vsc View.NavigateBackward
 
-    nnoremap <Leader>r :vsc Refactor.Rename<CR>
-    nnoremap <Leader>e :vsc View.NextError<CR>
-    nnoremap <Leader>E :vsc View.PreviousError<CR>
+    nnoremap <Leader>r :vsc Refactor.Rename
+    nnoremap <Leader>e :vsc View.NextError
+    nnoremap <Leader>E :vsc View.PreviousError
 end
 

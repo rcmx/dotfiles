@@ -1,0 +1,28 @@
+{
+    "editor.inlineSuggest.enabled": true,
+    "editor.minimap.enabled": false,
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": false,
+        "plaintext": false,
+        "markdown": true
+    },
+    "files.eol": "\n",
+    "workbench.colorTheme": "Visual Studio Dark",
+    "security.allowedUNCHosts": [
+        "wsl.localhost"
+    ],
+    "[yaml]": {
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true
+    },
+    "vscode-neovim.compositeKeys": {
+        "jj": {
+            "command": "vscode-neovim.escape",
+        },
+    },
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+}
+

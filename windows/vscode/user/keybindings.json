@@ -1,0 +1,13 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "ctrl+shift+f12",
+        "command": "vscode-neovim.stop",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+alt+f12",
+        "command": "vscode-neovim.restart",
+        "when": "editorFocus"
+    }
+]

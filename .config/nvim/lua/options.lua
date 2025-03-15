@@ -1,5 +1,3 @@
--- use system clipboard
-vim.opt.clipboard = "unnamed"
 
 -- tabs
 vim.opt.tabstop = 4

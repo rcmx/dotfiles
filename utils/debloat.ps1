@@ -14,6 +14,8 @@ $bloatApps = @(
   @{name = "Microsoft Photos"; source = "msstore" },
   @{name = "Microsoft Solitaire Collection"; source = "msstore" },
   @{name = "Microsoft Sticky Notes"; source = "msstore" }
+  @{name = "Microsoft Teams" }
+  @{name = "Microsoft Teams (personal)" }
   @{name = "Microsoft To Do"; source = "msstore" }
   @{name = "Mixed Reality Portal"; source = "msstore" },
   @{name = "Movies & TV"; source = "msstore" },

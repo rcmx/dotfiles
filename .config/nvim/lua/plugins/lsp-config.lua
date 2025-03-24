@@ -5,7 +5,7 @@ return {
         config = function()
             require("mason").setup()
         end,
-        -- dependencies = {
+-- dependencies = {
         --     {"seblj/roslyn.nvim"},
         -- },
     },
@@ -13,11 +13,11 @@ return {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup({
-                    ensure_installed = {
+                ensure_installed = {
                     -- "lua_ls",
                     -- "vtsls",
-                    }
-                })
+                }
+            })
         end
     },
     {
@@ -28,17 +28,18 @@ return {
             lspconfig.lua_ls.setup({
                 settings = {
                     Lua = {
-                      diagnostics = {
-                        globals = {'vim'}
-                      }
+                        diagnostics = {
+                            globals = {'vim'}
+                        }
                     }
-                  }})
+                }
+            })
 
             vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
             vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
             vim.keymap.set("n", "gr", vim.lsp.buf.references, {})
             vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
             vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, {})
-            end
+        end
     },
 }

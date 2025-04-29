@@ -18,6 +18,9 @@ return {
             end, {})
             vim.keymap.set("n", "<leader>rg", builtin.live_grep, {})
             vim.keymap.set("n", "<leader><leader>", builtin.buffers, {})
+
+            vim.keymap.set("n", "<leader>km", builtin.keymaps, {})
+            vim.keymap.set("n", "<leader>lr", builtin.lsp_references, {})
         end
     },
     {

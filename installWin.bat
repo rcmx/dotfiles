@@ -25,6 +25,7 @@ if errorlevel 2 (
     echo skipping..
     goto skipWingetInstall
 )
+winget install --id DEVCOM.LuaJIT
 winget install BurntSushi.ripgrep.MSVC
 winget install sharkdp.fd
 winget install MartinStorsjo.LLVM-MinGW.UCRT

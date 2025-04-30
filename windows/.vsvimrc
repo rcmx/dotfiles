@@ -7,15 +7,15 @@ inoremap jj <Esc>
 
 let mapleader = " "
 
-nnoremap gi :vsc Edit.GoToImplementation<CR>
 nnoremap gcc :vsc Edit.ToggleLineComment<CR>
-nnoremap gr :vsc Edit.FindAllReferences<CR>
 nnoremap gp :vsc Edit.PeekDefinition<CR>
 vnoremap gcc :vsc Edit.ToggleLineComment<CR>
 
 nnoremap <C-T> :vsc View.NavigateBackward<CR>
 
-nnoremap <Leader>r :vsc Refactor.Rename<CR>
+nnoremap <Leader>gri :vsc Edit.GoToImplementation<CR>
+nnoremap <Leader>grr :vsc Edit.FindAllReferences<CR>
+nnoremap <Leader>grn :vsc Refactor.Rename<CR>
 nnoremap <Leader>e :vsc View.NextError<CR>
 nnoremap <Leader>E :vsc View.PreviousError<CR>
 

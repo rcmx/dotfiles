@@ -5,9 +5,11 @@ cp -v ./linux/.??* ~/
 
 # required packages
 if command -v apt-get &> /dev/null; then
+    sudo apt install luarocks
     sudo apt install ripgrep
     sudo apt install build-essential
 elif command -v dnf &> /dev/null; then
+    sudo dnf install luarocks
     sudo dnf install ripgrep
     sudo dnf group install c-development
 else

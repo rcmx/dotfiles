@@ -10,6 +10,11 @@ let mapleader = " "
 nnoremap gcc :vsc Edit.ToggleLineComment<CR>
 nnoremap gp :vsc Edit.PeekDefinition<CR>
 vnoremap gcc :vsc Edit.ToggleLineComment<CR>
+-- navigation
+nnoremap <Leader>bp     :vsc Window.PreviousDocumentWindow<CR>
+nnoremap <Leader>bn     :vsc Window.NextDocumentWindow<CR>
+nnoremap <C-left>       :vsc Window.PreviousDocumentWindow<CR>
+nnoremap <C-right>      :vsc Window.NextDocumentWindow<CR>
 
 nnoremap <C-T> :vsc View.NavigateBackward<CR>
 

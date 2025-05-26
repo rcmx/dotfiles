@@ -3,9 +3,13 @@ return {
         "williamboman/mason.nvim",
         lazy = false,
         config = function()
-            require("mason").setup()
+            require("mason").setup({
+                registries = {
+                    "github:mason-org/mason-registry",
+                    "github:Crashdummyy/mason-registry",
+                },})
         end,
--- dependencies = {
+        -- dependencies = {
         --     {"seblj/roslyn.nvim"},
         -- },
     },

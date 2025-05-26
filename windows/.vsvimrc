@@ -3,31 +3,36 @@ let is_vsvim = 1
 set relativenumber
 set number
 
+set cursorline
+
 inoremap jj <Esc>
 
 let mapleader = " "
 
--- navigation
-nnoremap <Leader>bp     :vsc Window.PreviousDocumentWindow<CR>
-nnoremap <Leader>bn     :vsc Window.NextDocumentWindow<CR>
+" navigation buffers
 nnoremap <C-left>       :vsc Window.PreviousDocumentWindow<CR>
 nnoremap <C-right>      :vsc Window.NextDocumentWindow<CR>
 
+" navigation code
+nnoremap ]m             :vsc Edit.NextMethod<CR>
+nnoremap [m             :vsc Edit.PreviousMethod<CR>
+
+nnoremap gri            :vsc Edit.GoToImplementation<CR>
+nnoremap grr            :vsc Edit.FindAllReferences<CR>
+
+nnoremap <C-o>          :vsc View.NavigateBackward<CR>
+nnoremap <C-i>          :vsc View.NavigateForward<CR>
+
+" navigation errors
 nnoremap ]d             :vsc View.NextError<CR>
 nnoremap [d             :vsc View.PreviousError<CR>
 
-nnoremap <Leader>gri    :vsc Edit.GoToImplementation<CR>
-nnoremap <Leader>grr    :vsc Edit.FindAllReferences<CR>
-
-nnoremap <C-o>          :vsc View.NavigateBackward<CR>
-
--- comments
+" code comments
 nnoremap gcc            :vsc Edit.ToggleLineComment<CR>
 nnoremap gp             :vsc Edit.PeekDefinition<CR>
-vnoremap gcc            :vsc Edit.ToggleLineComment<CR>
 
--- refactoring
-nnoremap <Leader>grn    :vsc Refactor.Rename<CR>
-
+" code refactoring
+nnoremap gra            :vsc View.QuickActions<CR>
+nnoremap grn            :vsc Refactor.Rename<CR>
 
 

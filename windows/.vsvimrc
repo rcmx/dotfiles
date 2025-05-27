@@ -29,6 +29,7 @@ nnoremap [d             :vsc View.PreviousError<CR>
 
 " code comments
 nnoremap gcc            :vsc Edit.ToggleLineComment<CR>
+vnoremap gcc            :vsc Edit.ToggleLineComment<CR>
 nnoremap gp             :vsc Edit.PeekDefinition<CR>
 
 " code refactoring

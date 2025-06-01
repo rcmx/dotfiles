@@ -8,3 +8,10 @@ vim.keymap.set('n', '<leader>bp', ':bprev<CR>', { desc = 'Goto Previous Buffer',
 vim.keymap.set('n', '<leader>bn', ':bnext<CR>', { desc = 'Goto Next Buffer', silent = true })
 vim.keymap.set('n', '<C-left>', ':bprev<CR>', { desc = 'Goto Previous Buffer', silent = true })
 vim.keymap.set('n', '<C-right>', ':bnext<CR>', { desc = 'Goto Next Buffer', silent = true })
+
+-- quicklist
+vim.keymap.set("n", "<C-j>", ":cnext<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-k>", ":cprev<CR>", { noremap = true, silent = true })
+
+
+

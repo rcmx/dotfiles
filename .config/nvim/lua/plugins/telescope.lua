@@ -25,7 +25,13 @@ return {
                 })
             end, {})
             vim.keymap.set("n", "<Leader>fb", builtin.buffers, {})
-            vim.keymap.set("n", "<leader>rg", builtin.live_grep, {})
+            -- vim.keymap.set("n", "<leader>rg", builtin.live_grep, {})
+            vim.keymap.set("n", "<Leader>gf", function()
+                builtin.live_grep({
+                    hidden = true,
+                    file_ignore_patterns = {'.git/'}
+                })
+            end, {})
 
             vim.keymap.set("n", "<leader>km", builtin.keymaps, {})
         end
@@ -55,7 +61,7 @@ return {
                         --   codeactions = false,
                         -- }
                     }
-          }
+                }
             }
             -- To get ui-select loaded and working with telescope, you need to call
             -- load_extension, somewhere after setup function:

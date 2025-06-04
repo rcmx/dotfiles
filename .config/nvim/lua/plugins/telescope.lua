@@ -5,7 +5,15 @@ return {
         dependencies = { "nvim-lua/plenary.nvim" },
         config = function()
             local telescope = require("telescope")
-            telescope.setup()
+            telescope.setup({
+                defaults = {
+                    layout_strategy = "vertical"
+                    --     = {
+                    --         width = 0.8,
+                    --     }
+                    -- }
+                }
+            })
 
             local builtin = require("telescope.builtin")
 

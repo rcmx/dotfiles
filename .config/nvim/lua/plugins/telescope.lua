@@ -18,18 +18,19 @@ return {
             local builtin = require("telescope.builtin")
 
             vim.keymap.set("n", "<Leader>ff", builtin.find_files, {})
-            vim.keymap.set("n", "<Leader>fhf", function()
+            vim.keymap.set("n", "<Leader>ffh", function()
                 builtin.find_files({
                     hidden = true,
                     file_ignore_patterns = {'.git/'}
                 })
             end, {})
             vim.keymap.set("n", "<Leader>fb", builtin.buffers, {})
-            -- vim.keymap.set("n", "<leader>rg", builtin.live_grep, {})
-            vim.keymap.set("n", "<Leader>gf", function()
+            vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
+            vim.keymap.set("n", "<Leader>fgh", function()
                 builtin.live_grep({
-                    hidden = true,
-                    file_ignore_patterns = {'.git/'}
+                    additional_args = function(opts)
+                        return { "--hidden", "--glob=!.git/" }
+                    end
                 })
             end, {})
 

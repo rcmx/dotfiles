@@ -40,6 +40,7 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 ### alias
 alias la='ls -a'
 alias ll='ls -l'
+
 ### git
 alias gs='git status'
 alias gss='git status -s'
@@ -47,6 +48,8 @@ alias gb='git branch '
 alias gd='git diff -w'
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
 alias glol='git log --graph --abbrev-commit --oneline --decorate'
+
+alias lg=lazygit
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

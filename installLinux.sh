@@ -30,4 +30,5 @@ echo "install packages"
 install_if_missing luarocks luarocks
 install_if_missing rg ripgrep
 install_if_missing gcc build-essential
+install_if_missing fzf fzf
 

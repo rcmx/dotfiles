@@ -12,6 +12,8 @@ vim.opt.cursorline = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+vim.opt.laststatus = 3
+
 -- set leader key to space
 vim.g.mapleader = " "
 

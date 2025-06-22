@@ -17,3 +17,5 @@ vim.opt.laststatus = 3
 -- set leader key to space
 vim.g.mapleader = " "
 
+vim.diagnostic.config({ virtual_lines = { current_line = true } })
+

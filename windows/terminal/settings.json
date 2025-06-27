@@ -30,7 +30,7 @@
     {
         "defaults": 
         {
-            "colorScheme": "One Half Dark",
+            "colorScheme": "Campbell",
             "font": 
             {
                 "face": "Hack Nerd Font Mono",
@@ -88,6 +88,7 @@
                 "source": "Microsoft.WSL"
             },
             {
+                "colorScheme": "One Half Dark",
                 "guid": "{a842c9e7-b23d-5dfe-a010-1c89581cfbc0}",
                 "hidden": false,
                 "name": "Fedora",
@@ -108,6 +109,7 @@
             {
                 "guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
                 "hidden": false,
+                "icon": null,
                 "name": "Ubuntu",
                 "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc"
             }

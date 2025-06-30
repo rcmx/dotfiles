@@ -22,7 +22,11 @@ return {
         input = { enabled = true },
         picker = { enabled = true ,
 
-            layout = { preset = "vertical" },
+            layout = { preset = "vertical" , width = 0.8},
+            formatters = {
+                file = {
+                    truncate = 80}
+            },
 
             notifier = { enabled = true },
             quickfile = { enabled = true },

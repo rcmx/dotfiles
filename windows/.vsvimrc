@@ -12,18 +12,19 @@ let mapleader = " "
 " navigation buffers
 nnoremap <C-left>       :vsc Window.PreviousDocumentWindow<CR>
 nnoremap <C-right>      :vsc Window.NextDocumentWindow<CR>
+nnoremap <leader>bp     :vsc Window.PreviousDocumentWindow<CR>
+nnoremap <leader>bn     :vsc Window.NextDocumentWindow<CR>
 
 " navigation code
 nnoremap ]m             :vsc Edit.NextMethod<CR>
 nnoremap [m             :vsc Edit.PreviousMethod<CR>
 
-nnoremap gri            :vsc Edit.GoToImplementation<CR>
-nnoremap grr            :vsc Edit.FindAllReferences<CR>
 
 nnoremap <C-o>          :vsc View.NavigateBackward<CR>
 nnoremap <C-i>          :vsc View.NavigateForward<CR>
 
 " navigation errors
+nnoremap <leader>sd     :vsc View.ErrorList<CR>
 nnoremap ]d             :vsc View.NextError<CR>
 nnoremap [d             :vsc View.PreviousError<CR>
 
@@ -35,5 +36,40 @@ nnoremap gp             :vsc Edit.PeekDefinition<CR>
 " code refactoring
 nnoremap gra            :vsc View.QuickActions<CR>
 nnoremap grn            :vsc Refactor.Rename<CR>
+nnoremap gd             :vsc Edit.GoToDefinition<CR>
+nnoremap gD             :vsc Edit.GoToDeclaration<CR>
+nnoremap gi             :vsc Edit.GoToImplementation<CR>
+nnoremap gri            :vsc Edit.GoToImplementation<CR>
+nnoremap grr            :vsc Edit.FindAllReferences<CR>
 
+" additional navigation - consistent with nvim setup
+nnoremap <C-u>          <C-u>zz
+nnoremap <C-d>          <C-d>zz
+nnoremap <C-b>          <C-b>zz
+nnoremap <C-f>          <C-f>zz
+
+" buffer management
+nnoremap <leader>ff     :vsc File.OpenFile<CR>
+nnoremap <leader><space> :vsc File.OpenFile<CR>
+nnoremap <leader>bd     :vsc File.Close<CR>
+
+" terminal (if available)
+nnoremap <C-/>          :vsc View.Terminal<CR>
+
+" zen mode / focus
+nnoremap <leader>z      :vsc View.FullScreen<CR>
+
+" additional search commands
+nnoremap <leader>sg     :vsc Edit.FindInFiles<CR>
+nnoremap <leader>sw     :vsc Edit.FindNext<CR>
+
+" intellisense
+nnoremap <C-space>      :vsc Edit.CompleteWord<CR>
+inoremap <C-space>      <C-o>:vsc Edit.CompleteWord<CR>
+
+"" better escape for insert mode
+"inoremap <C-c>          <Esc>
+
+" quick access to command palette
+nnoremap <leader>:      :vsc View.CommandWindow<CR>
 

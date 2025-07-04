@@ -4,9 +4,6 @@ copy windows\.vsvimrc %USERPROFILE%\
 :: vscode settings
 robocopy windows\vscode\user %APPDATA%\Code\User /NJH /NJS
 
-:: settings for windows terminal 
-copy windows\terminal %LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState
-
 :: powershell configuration
 copy windows\powershell\Microsoft.PowerShell_profile.ps1 %USERPROFILE%\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
 :: pwsh configuration (if exists)

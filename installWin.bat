@@ -16,6 +16,8 @@ set vimConfigDir=%APPDATA%\..\Local\nvim
 robocopy .config\nvim %vimConfigDir% /MIR /NJH /NJS /R:3 /W:1
 
 :: required packages
+copy both\* %USERPROFILE%\
+
 choice /C YN /M "winget install required packages?"
 if errorlevel 2 (
     echo skipping..
@@ -26,6 +28,7 @@ winget install BurntSushi.ripgrep.MSVC
 winget install sharkdp.fd
 winget install MartinStorsjo.LLVM-MinGW.UCRT
 winget install fzf
+winget install --id=wez.wezterm  -e
 
 :skipWingetInstall
 echo after everything

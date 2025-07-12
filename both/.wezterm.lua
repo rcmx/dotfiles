@@ -130,5 +130,30 @@ config.keys = {
     },
 }
 
+config.mouse_bindings = {
+    {
+        event = { Up = { streak = 1, button = 'Left' } },
+        mods = 'NONE',
+        action = action.CompleteSelection 'ClipboardAndPrimarySelection',
+    },
+    {
+        event = { Down = { streak = 1, button = "Right" } },
+        mods = "NONE",
+        action = action({ PasteFrom = "Clipboard" }),
+    },
+    -- and make CTRL-Click open hyperlinks
+    {
+        event = { Up = { streak = 1, button = 'Left' } },
+        mods = 'CTRL',
+        action = action.OpenLinkAtMouseCursor,
+    },
+    {
+        event = { Down = { streak = 1, button = 'Left' } },
+        mods = 'CTRL',
+        action = action.Nop,
+    },
+}
+
+
 return config
 

@@ -54,8 +54,8 @@ config.keys = {
 
     -- launcher
     {
-        key = ',',
-        mods = 'CTRL',
+        key = 'T',
+        mods = 'SHIFT|CTRL',
         action = wezterm.action.ShowLauncher
     },
 

@@ -9,7 +9,7 @@ config.leader = { key = 'a', mods = 'CTRL' }
 config.adjust_window_size_when_changing_font_size = false
 config.enable_scroll_bar = true
 config.font = wezterm.font 'Hack Nerd Font Mono'
-config.font_size = 11
+config.font_size = 12
 config.hide_tab_bar_if_only_one_tab = true
 config.initial_cols = 120
 config.initial_rows = 40
@@ -42,9 +42,7 @@ if wezterm.target_triple:match("windows") then
     }
 end
 
--- key bindings
 config.keys = {
-
     -- tabs
     {
         key = 'c',
@@ -98,6 +96,13 @@ config.keys = {
         key = '-',
         mods = 'LEADER',
         action = action.SplitVertical { domain = 'CurrentPaneDomain' },
+    },
+
+    -- zoom pane
+    {
+        key = 'z',
+        mods = 'LEADER',
+        action = action.TogglePaneZoomState,
     },
 
     -- last window (similar to C-^)

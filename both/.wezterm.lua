@@ -17,6 +17,25 @@ config.scrollback_lines = 9999
 config.tab_bar_at_bottom = true
 --config.window_decorations = "RESIZE"
 
+-- Color scheme configuration based on OS and shell
+local function get_color_scheme()
+    if wezterm.target_triple:match("windows") then
+        -- On Windows, check if we're in WSL
+        local success, stdout = wezterm.run_child_process({"cmd", "/c", "wsl", "echo", "$WSL_DISTRO_NAME"})
+        if success and stdout:match("Ubuntu") then
+            return "Ubuntu"
+        else
+            -- Running in cmd.exe or powershell on Windows
+            return 'Campbell (Gogh)'
+        end
+    else
+        -- On Linux, use default
+        return "default"
+    end
+end
+
+config.color_scheme = get_color_scheme()
+
 
 if wezterm.target_triple:match("windows") then
     config.default_prog = { 'pwsh.exe', '-NoLogo' }
@@ -158,6 +177,42 @@ config.mouse_bindings = {
         action = action.Nop,
     },
 }
+
+
+
+
+-- handlers
+wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_width)
+wezterm.log_info('in handler')
+    local title = tab_title(tab)
+
+    wezterm.log_info(title)
+    if tab.is_active then
+        return {
+            { Background = { Color = 'blue' } },
+            { Text = ' ' .. title .. ' ' },
+        }
+    end
+    return title
+end
+)
+
+-- functions
+
+-- This function returns the suggested title for a tab.
+-- It prefers the title that was set via `tab:set_title()`
+-- or `wezterm cli set-tab-title`, but falls back to the
+-- title of the active pane in that tab.
+function tab_title(tab_info)
+    local title = tab_info.tab_title
+    -- if the tab title is explicitly set, take that
+    if title and #title > 0 then
+        return title
+    end
+    -- Otherwise, use the title from the active pane
+    -- in that tab
+    return tab_info.active_pane.title
+end
 
 
 return config

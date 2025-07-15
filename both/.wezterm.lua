@@ -190,10 +190,10 @@ config.mouse_bindings = {
 
 -- handlers
 wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_width)
-    wezterm.log_info('in handler')
+    -- wezterm.log_info('in handler')
     local title = tab_title(tab)
 
-    wezterm.log_info(title)
+    -- wezterm.log_info(title)
     if tab.is_active then
         return {
             { Background = { Color = 'blue' } },

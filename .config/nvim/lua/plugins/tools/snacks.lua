@@ -29,7 +29,7 @@ return {
             },
             formatters = {
                 file = {
-                    truncate = 70,
+                    truncate = 140,
                 },
             },
 

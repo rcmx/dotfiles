@@ -20,19 +20,20 @@ config.tab_bar_at_bottom = true
 -- Color scheme configuration based on OS and shell
 local function get_color_scheme()
     if wezterm.target_triple:match("windows") then
-        -- windows
         -- check for WSL
-        local success, stdout = wezterm.run_child_process({"cmd", "/c", "wsl", "echo", "$WSL_DISTRO_NAME"})
-        if success and stdout:match("Ubuntu") then
-            return "Ubuntu"
-        else
-            -- Running in cmd.exe or powershell on Windows
-            return 'Campbell (Gogh)'
+        local ev = os.getenv('WSL_DISTRO_NAME')
+        if ev and #ev > 0 then
+            if ev:match("Ubuntu") then
+                return "Ubuntu"
+            end
+            return 'Catppuccin Mocha (Gogh)'
         end
-    else
-        -- linux
-        return 'Catppuccin Mocha (Gogh)'
+        -- cmd.exe or powershell 
+        return 'Campbell (Gogh)'
     end
+
+    -- linux
+    return 'Catppuccin Mocha (Gogh)'
 end
 
 config.color_scheme = get_color_scheme()
@@ -184,7 +185,7 @@ config.mouse_bindings = {
 
 -- handlers
 wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_width)
-wezterm.log_info('in handler')
+    wezterm.log_info('in handler')
     local title = tab_title(tab)
 
     wezterm.log_info(title)

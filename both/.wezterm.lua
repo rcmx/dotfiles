@@ -20,7 +20,8 @@ config.tab_bar_at_bottom = true
 -- Color scheme configuration based on OS and shell
 local function get_color_scheme()
     if wezterm.target_triple:match("windows") then
-        -- On Windows, check if we're in WSL
+        -- windows
+        -- check for WSL
         local success, stdout = wezterm.run_child_process({"cmd", "/c", "wsl", "echo", "$WSL_DISTRO_NAME"})
         if success and stdout:match("Ubuntu") then
             return "Ubuntu"
@@ -29,7 +30,7 @@ local function get_color_scheme()
             return 'Campbell (Gogh)'
         end
     else
-        -- On Linux, use default
+        -- linux
         return 'Catppuccin Mocha (Gogh)'
     end
 end
@@ -109,12 +110,12 @@ config.keys = {
     {
         key = '|',
         mods = 'LEADER|SHIFT',
-        action = action.SplitHorizontal { domain = 'CurrentPaneDomain' },
+        action = action.SplitHorizontal, -- { domain = 'CurrentPaneDomain' },
     },
     {
         key = '-',
         mods = 'LEADER',
-        action = action.SplitVertical { domain = 'CurrentPaneDomain' },
+        action = action.SplitVertical, -- { domain = 'CurrentPaneDomain' },
     },
 
     -- zoom pane

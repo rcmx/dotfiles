@@ -30,7 +30,7 @@ local function get_color_scheme()
         end
     else
         -- On Linux, use default
-        return "default"
+        return 'Catppuccin Mocha (Gogh)'
     end
 end
 

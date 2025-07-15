@@ -19,20 +19,18 @@ config.tab_bar_at_bottom = true
 
 -- Color scheme configuration based on OS and shell
 local function get_color_scheme()
-    if wezterm.target_triple:match("windows") then
-    wezterm.log_info('in windows')
+
+    -- check host
+    local isWindows = package.config:sub(1, 1) == '\\'
+    if isWindows then
+        wezterm.log_info('in windows')
         -- check for WSL
         local ev = os.getenv('WSL_DISTRO_NAME')
-        if ev and #ev > 0 then
-    wezterm.log_info('in wsl')
-            if ev:match("Ubuntu") then
-                return "Ubuntu"
-            end
-            return 'Catppuccin Mocha (Gogh)'
+        if ev == nil or #ev == 0 then
+            wezterm.log_info('cmd/powershell')
+            -- cmd.exe or powershell 
+            return 'Campbell (Gogh)'
         end
-    wezterm.log_info('cmd/powershell')
-        -- cmd.exe or powershell 
-        return 'Campbell (Gogh)'
     end
 
     wezterm.log_info('in linux')

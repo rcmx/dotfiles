@@ -26,6 +26,7 @@ local function get_color_scheme()
         wezterm.log_info('in windows')
         -- check for WSL
         local ev = os.getenv('WSL_DISTRO_NAME')
+        wezterm.log_info('WSL_DISTRO_NAME: "' .. (ev or 'nil') .. '"')
         if ev == nil or #ev == 0 then
             wezterm.log_info('cmd/powershell')
             -- cmd.exe or powershell 

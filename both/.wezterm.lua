@@ -131,28 +131,72 @@ config.keys = {
         action = action.ActivateLastTab,
     },
 
-    -- pane resizing
-    {
-        key = 'UpArrow',
-        mods = 'LEADER|CTRL',
-        action = action.AdjustPaneSize { 'Up', 2 },
-    },
-    {
-        key = 'DownArrow',
-        mods = 'LEADER|CTRL',
-        action = action.AdjustPaneSize { 'Down', 2 },
-    },
+    -- resize with Leader + ctrl+arrow (enters resize mode)
     {
         key = 'LeftArrow',
         mods = 'LEADER|CTRL',
-        action = action.AdjustPaneSize { 'Left', 2 },
+        action = wezterm.action.Multiple {
+            wezterm.action.AdjustPaneSize { 'Left', 2 },
+            wezterm.action.ActivateKeyTable {
+                name = 'resize_pane',
+                one_shot = false,
+                timeout_milliseconds = 3000,
+            },
+        },
     },
     {
         key = 'RightArrow',
         mods = 'LEADER|CTRL',
-        action = action.AdjustPaneSize { 'Right', 2 },
+        action = wezterm.action.Multiple {
+            wezterm.action.AdjustPaneSize { 'Right', 2 },
+            wezterm.action.ActivateKeyTable {
+                name = 'resize_pane',
+                one_shot = false,
+                timeout_milliseconds = 3000,
+            },
+        },
+    },
+    {
+        key = 'UpArrow',
+        mods = 'LEADER|CTRL',
+        action = wezterm.action.Multiple {
+            wezterm.action.AdjustPaneSize { 'Up', 2 },
+            wezterm.action.ActivateKeyTable {
+                name = 'resize_pane',
+                one_shot = false,
+                timeout_milliseconds = 3000,
+            },
+        },
+    },
+    {
+        key = 'DownArrow',
+        mods = 'LEADER|CTRL',
+        action = wezterm.action.Multiple {
+            wezterm.action.AdjustPaneSize { 'Down', 2 },
+            wezterm.action.ActivateKeyTable {
+                name = 'resize_pane',
+                one_shot = false,
+                timeout_milliseconds = 3000,
+            },
+        },
     },
 }
+
+config.key_tables = {
+  resize_pane = {
+    -- ctrl+arrow keys for resizing (while in resize mode)
+    { key = 'LeftArrow', mods = 'CTRL', action = wezterm.action.AdjustPaneSize { 'Left', 2 } },
+    { key = 'RightArrow', mods = 'CTRL', action = wezterm.action.AdjustPaneSize { 'Right', 2 } },
+    { key = 'UpArrow', mods = 'CTRL', action = wezterm.action.AdjustPaneSize { 'Up', 2 } },
+    { key = 'DownArrow', mods = 'CTRL', action = wezterm.action.AdjustPaneSize { 'Down', 2 } },
+    -- exit resize mode
+    { key = 'Escape', action = 'PopKeyTable' },
+    { key = 'Enter', action = 'PopKeyTable' },
+    { key = 'q', action = 'PopKeyTable' },
+  },
+}
+
+
 
 config.mouse_bindings = {
     {
@@ -183,7 +227,7 @@ config.mouse_bindings = {
 
 -- handlers
 wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_width)
-wezterm.log_info('in handler')
+    wezterm.log_info('in handler')
     local title = tab_title(tab)
 
     wezterm.log_info(title)

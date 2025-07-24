@@ -4,38 +4,26 @@ local action = wezterm.action
 
 local config = wezterm.config_builder()
 
+
 config.leader = { key = 'a', mods = 'CTRL' }
 
 config.adjust_window_size_when_changing_font_size = false
-config.enable_scroll_bar = true
 config.font = wezterm.font 'Hack Nerd Font Mono'
 config.font_size = 12
 config.hide_tab_bar_if_only_one_tab = true
 config.initial_cols = 120
 config.initial_rows = 40
 config.scrollback_lines = 9999
+config.enable_scroll_bar = true
 config.tab_bar_at_bottom = true
---config.window_decorations = "RESIZE"
+-- config.window_decorations = "RESIZE"
 
--- Color scheme configuration based on OS and shell
-local function get_color_scheme()
-    if wezterm.target_triple:match("windows") then
-        -- On Windows, check if we're in WSL
-        local success, stdout = wezterm.run_child_process({"cmd", "/c", "wsl", "echo", "$WSL_DISTRO_NAME"})
-        if success and stdout:match("Ubuntu") then
-            return "Ubuntu"
-        else
-            -- Running in cmd.exe or powershell on Windows
-            return 'Campbell (Gogh)'
-        end
-    else
-        -- On Linux, use default
-        return 'Catppuccin Mocha (Gogh)'
-    end
-end
+config.inactive_pane_hsb = {
+  -- saturation = 0.9,
+  brightness = 0.6,
+}
 
-config.color_scheme = get_color_scheme()
-
+config.color_scheme = 'Catppuccin Mocha (Gogh)'
 
 if wezterm.target_triple:match("windows") then
     config.default_prog = { 'pwsh.exe', '-NoLogo' }
@@ -222,22 +210,23 @@ config.mouse_bindings = {
     },
 }
 
-
+wezterm.on('new-tab', function(tab, pane)
+end)
 
 
 -- handlers
 wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_width)
-    wezterm.log_info('in handler')
-    local title = tab_title(tab)
-
-    wezterm.log_info(title)
-    if tab.is_active then
-        return {
-            { Background = { Color = 'blue' } },
-            { Text = ' ' .. title .. ' ' },
-        }
-    end
-    return title
+--     -- wezterm.log_info('in handler')
+--     local title = tab_title(tab)
+--
+--     -- wezterm.log_info(title)
+--     if tab.is_active then
+--         return {
+--             { Background = { Color = 'blue' } },
+--             { Text = ' ' .. title .. ' ' },
+--         }
+--     end
+--     return title
 end
 )
 

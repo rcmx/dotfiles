@@ -23,7 +23,7 @@ config.inactive_pane_hsb = {
   brightness = 0.6,
 }
 
-config.color_scheme = 'Catppuccin Mocha (Gogh)'
+config.color_scheme = 'Catppuccin Mocha'
 
 if wezterm.target_triple:match("windows") then
     config.default_prog = { 'pwsh.exe', '-NoLogo' }

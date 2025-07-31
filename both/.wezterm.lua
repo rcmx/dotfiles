@@ -97,12 +97,12 @@ config.keys = {
     {
         key = '|',
         mods = 'LEADER|SHIFT',
-        action = action.SplitHorizontal { domain = 'CurrentPaneDomain' },
+        action = action.SplitHorizontal,
     },
     {
         key = '-',
         mods = 'LEADER',
-        action = action.SplitVertical { domain = 'CurrentPaneDomain' },
+        action = action.SplitVertical,
     },
 
     -- zoom pane

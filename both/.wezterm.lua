@@ -56,6 +56,18 @@ config.keys = {
         mods = 'LEADER',
         action = action.SpawnTab 'CurrentPaneDomain',
     },
+    -- switch to previous tab 
+    {
+        key = 'LeftArrow',
+        mods = 'CTRL|SHIFT',
+        action = wezterm.action.ActivateTabRelative(-1),
+    },
+    -- wwitch to next tab 
+    {
+        key = 'RightArrow',
+        mods = 'CTRL|SHIFT',
+        action = wezterm.action.ActivateTabRelative(1),
+    },
 
     -- launcher
     {

@@ -197,17 +197,19 @@ config.key_tables = {
 }
 
 
-
 config.mouse_bindings = {
     {
         event = { Up = { streak = 1, button = 'Left' } },
         mods = 'NONE',
-        action = action.CompleteSelection 'ClipboardAndPrimarySelection',
+        action = action.ExtendSelectionToMouseCursor 'Cell',
     },
     {
         event = { Down = { streak = 1, button = "Right" } },
         mods = "NONE",
-        action = action({ PasteFrom = "Clipboard" }),
+        action = action.Multiple {
+            action.CompleteSelection 'ClipboardAndPrimarySelection',
+            action.ClearSelection,
+        },
     },
     -- and make CTRL-Click open hyperlinks
     {
@@ -221,6 +223,7 @@ config.mouse_bindings = {
         action = action.Nop,
     },
 }
+
 
 wezterm.on('new-tab', function(tab, pane)
 end)

@@ -197,6 +197,19 @@ config.key_tables = {
 }
 
 
+-- Function to copy selection if text is selected, otherwise paste
+local function copy_or_paste(window, pane)
+    local sel = window:get_selection_text_for_pane(pane)
+    if sel and sel ~= "" then
+        -- Text is selected, copy it and clear selection
+        window:copy_to_clipboard(sel)
+        window:perform_action(action.ClearSelection, pane)
+    else
+        -- No text selected, paste from clipboard
+        window:perform_action(action.PasteFrom 'Clipboard', pane)
+    end
+end
+
 config.mouse_bindings = {
     {
         event = { Up = { streak = 1, button = 'Left' } },
@@ -206,10 +219,7 @@ config.mouse_bindings = {
     {
         event = { Down = { streak = 1, button = "Right" } },
         mods = "NONE",
-        action = action.Multiple {
-            action.CompleteSelection 'ClipboardAndPrimarySelection',
-            action.ClearSelection,
-        },
+        action = wezterm.action_callback(copy_or_paste),
     },
     -- and make CTRL-Click open hyperlinks
     {
@@ -223,7 +233,6 @@ config.mouse_bindings = {
         action = action.Nop,
     },
 }
-
 
 wezterm.on('new-tab', function(tab, pane)
 end)

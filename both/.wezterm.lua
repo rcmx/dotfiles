@@ -196,11 +196,10 @@ config.key_tables = {
   },
 }
 
-
 local function copy_or_paste(window, pane)
     local sel = window:get_selection_text_for_pane(pane)
     if sel and sel ~= "" then
-        -- Text is selected, use copy action 
+        -- Text is selected, use copy action
         window:perform_action(action.Copy, pane)
         window:perform_action(action.ClearSelection, pane)
     else
@@ -209,18 +208,45 @@ local function copy_or_paste(window, pane)
     end
 end
 
+
+local function copy_or_paste(window, pane)
+    local sel = window:get_selection_text_for_pane(pane)
+    if sel and sel ~= "" then
+        -- Text is selected, copy it manually since we want to clear after
+        window:copy_to_clipboard(sel)
+        window:perform_action(action.ClearSelection, pane)
+    else
+        -- No text selected, paste from clipboard
+        window:perform_action(action.PasteFrom 'Clipboard', pane)
+    end
+end
+
 config.mouse_bindings = {
+    -- Start selection on left mouse down
     {
-        event = { Up = { streak = 1, button = 'Left' } },
+        event = { Down = { streak = 1, button = 'Left' } },
+        mods = 'NONE',
+        action = action.SelectTextAtMouseCursor 'Cell',
+    },
+    -- Extend selection while dragging
+    {
+        event = { Drag = { streak = 1, button = 'Left' } },
         mods = 'NONE',
         action = action.ExtendSelectionToMouseCursor 'Cell',
     },
+    -- Do nothing on left mouse up (keep selection visible)
+    {
+        event = { Up = { streak = 1, button = 'Left' } },
+        mods = 'NONE',
+        action = action.Nop,
+    },
+    -- Copy or paste on right click
     {
         event = { Down = { streak = 1, button = "Right" } },
         mods = "NONE",
         action = wezterm.action_callback(copy_or_paste),
     },
-    -- and make CTRL-Click open hyperlinks
+    -- CTRL-Click to open hyperlinks
     {
         event = { Up = { streak = 1, button = 'Left' } },
         mods = 'CTRL',
@@ -232,6 +258,8 @@ config.mouse_bindings = {
         action = action.Nop,
     },
 }
+
+
 
 wezterm.on('new-tab', function(tab, pane)
 end)

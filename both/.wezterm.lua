@@ -197,12 +197,11 @@ config.key_tables = {
 }
 
 
--- Function to copy selection if text is selected, otherwise paste
 local function copy_or_paste(window, pane)
     local sel = window:get_selection_text_for_pane(pane)
     if sel and sel ~= "" then
-        -- Text is selected, copy it and clear selection
-        window:copy_to_clipboard(sel)
+        -- Text is selected, use copy action 
+        window:perform_action(action.Copy, pane)
         window:perform_action(action.ClearSelection, pane)
     else
         -- No text selected, paste from clipboard

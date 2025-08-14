@@ -261,11 +261,17 @@ config.mouse_bindings = {
 
 
 
+-- handlers
 wezterm.on('new-tab', function(tab, pane)
 end)
 
+wezterm.on('format-window-title', function(tab, pane, tabs, panes, config)
+  local url = pane.current_working_dir
+  local title = url.file_path
 
--- handlers
+  return title
+end)
+
 wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_width)
 --     -- wezterm.log_info('in handler')
 --     local title = tab_title(tab)

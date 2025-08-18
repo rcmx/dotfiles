@@ -1,4 +1,3 @@
-Import-Module posh-git
 
 function gb {git branch $args}
 function gd {git diff $args}
@@ -20,4 +19,13 @@ function prompt {
     }
     "${osc7}PS $p$('>' * ($nestedPromptLevel + 1)) ";
 }
+
+# modules
+Import-Module posh-git
+
+# vars
+if (Test-Path "$HOME\.env.ps1") {
+    . ~/.env.ps1
+}
+
 

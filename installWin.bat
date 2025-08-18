@@ -10,6 +10,9 @@ copy windows\powershell\Microsoft.PowerShell_profile.ps1 %USERPROFILE%\Documents
 IF EXIST "%USERPROFILE%\Documents\PowerShell" (
    copy "windows\powershell\Microsoft.PowerShell_profile.ps1" "%USERPROFILE%\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
 )
+if not exist "%USERPROFILE%\.env.ps1" (
+    copy "windows\powershell\env.ps1" "%USERPROFILE%\.env.ps1"
+)
 
 :: neovim configuration - mirror the entire nvim config folder
 set vimConfigDir=%APPDATA%\..\Local\nvim

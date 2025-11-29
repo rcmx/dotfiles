@@ -1,5 +1,5 @@
 #!/bin/bash
 
-stow htop nvim tmux wezterm zsh
+stow htop hypr nvim tmux wezterm zsh
 
 

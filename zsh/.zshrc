@@ -8,8 +8,8 @@
 
 # History settings
 setopt histignorealldups sharehistory
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=100000
+SAVEHIST=100000
 HISTFILE=~/.zsh_history
 
 # =============================================================================
@@ -18,9 +18,6 @@ HISTFILE=~/.zsh_history
 
 # Use vi mode
 bindkey -v
-
-# Enhanced history search
-bindkey "^R" history-incremental-pattern-search-backward
 
 # =============================================================================
 # Prompt Configuration
@@ -70,8 +67,8 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 # =============================================================================
 
 # File system aliases
-alias la='ls -a'
-alias ll='ls -l'
+alias la='ls -la'
+alias ll='ls -lt'
 
 # Git aliases
 alias gs='git status'
@@ -84,9 +81,14 @@ alias glol='git log --graph --abbrev-commit --oneline --decorate'
 # Git tools
 alias lg='lazygit'
 
+alias cylo='claude --allow-dangerously-skip-permissions'
+
 # =============================================================================
 # Environment Variables & External Tools
 # =============================================================================
+
+# fzf
+eval "$(fzf --zsh)"
 
 # Node Version Manager (NVM)
 export NVM_DIR="$HOME/.nvm"

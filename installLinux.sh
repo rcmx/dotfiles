@@ -1,5 +1,5 @@
 #!/bin/bash
 
-stow htop lazygit nvim tmux wezterm zsh
+stow htop kitty lazygit nvim tmux zsh
 
 

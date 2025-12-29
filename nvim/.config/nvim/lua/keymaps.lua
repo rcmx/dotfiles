@@ -16,7 +16,12 @@ vim.keymap.set('n', '<C-right>', ':bnext<CR>', { desc = 'Goto Next Buffer', sile
 vim.keymap.set("n", "]m", "]mzz", { noremap = true, silent = true })
 vim.keymap.set("n", "[m", "[mzz", { noremap = true, silent = true })
 
---
+-- windows
+vim.keymap.set("n", "<C-h>", "<<cmd>wincmd h<cr>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-j>", "<<cmd>wincmd j<cr>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-k>", "<<cmd>wincmd k<cr>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-l>", "<<cmd>wincmd l<cr>", { noremap = true, silent = true })
+
 --
 -- quicklist
 vim.keymap.set("n", "<C-j>", ":cnext<CR>", { noremap = true, silent = true })

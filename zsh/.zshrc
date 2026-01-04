@@ -81,7 +81,10 @@ alias glol='git log --graph --abbrev-commit --oneline --decorate'
 # Git tools
 alias lg='lazygit'
 
-alias cylo='claude --allow-dangerously-skip-permissions'
+function cylo() {
+    claude --allow-dangerously-skip-permissions "$@"
+}
+
 
 # =============================================================================
 # Environment Variables & External Tools
@@ -97,5 +100,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PATH="$HOME/.local/bin:$PATH"
-
 

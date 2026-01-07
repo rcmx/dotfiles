@@ -6,7 +6,7 @@ function gss {git status -s}
 function gl {git log --graph --pretty=format:'\''%Cred%h%Creset -%s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\}
 function glol {git log --graph --abbrev-commit --oneline --decorate}
 
-function cylo {claude  --dangerously-skip-permissions }
+function cylo {claude  --dangerously-skip-permissions $args }
 
 set-alias -name lg -value lazygit
 

@@ -81,7 +81,7 @@ alias glol='git log --graph --abbrev-commit --oneline --decorate'
 # Git tools
 alias lg='lazygit'
 
-function cylo() {
+function cyolo() {
     claude --allow-dangerously-skip-permissions "$@"
 }
 

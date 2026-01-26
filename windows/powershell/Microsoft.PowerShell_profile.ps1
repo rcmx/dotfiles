@@ -8,6 +8,7 @@ function glol {git log --graph --abbrev-commit --oneline --decorate}
 
 function cyolo {claude  --dangerously-skip-permissions $args }
 
+set-alias -name ll -value dir
 set-alias -name lg -value lazygit
 
 

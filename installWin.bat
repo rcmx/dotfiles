@@ -15,8 +15,8 @@ if not exist "%USERPROFILE%\.env.ps1" (
 )
 
 :: neovim configuration - mirror the entire nvim config folder
-set vimConfigDir=%APPDATA%\..\Local\nvim
-robocopy .config\nvim %vimConfigDir% /MIR /NJH /NJS /R:3 /W:1
+set vimConfigDir=%LOCALAPPDATA%\nvim
+robocopy nvim\.config\nvim %vimConfigDir% /MIR /NJH /NJS /R:3 /W:1
 
 :: required packages
 copy both\* %USERPROFILE%\

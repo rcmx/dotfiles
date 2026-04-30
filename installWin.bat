@@ -30,7 +30,6 @@ winget install --id DEVCOM.LuaJIT
 winget install tree-sitter.tree-sitter-cli
 winget install BurntSushi.ripgrep.MSVC
 winget install sharkdp.fd
-winget install MartinStorsjo.LLVM-MinGW.UCRT
 winget install fzf
 winget install --id=wez.wezterm  -e
 

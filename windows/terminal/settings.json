@@ -28,14 +28,15 @@
     ],
     "profiles": 
     {
-        "defaults": 
+        "defaults":
         {
             "colorScheme": "Campbell",
-            "font": 
+            "font":
             {
                 "face": "Hack Nerd Font Mono",
                 "size": 11
-            }
+            },
+            "historySize": 32767
         },
         "list": 
         [

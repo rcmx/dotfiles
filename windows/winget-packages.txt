@@ -1,0 +1,15 @@
+# winget packages installed by winHelper.ps1 (-Install phase).
+# One package per line. Everything after a leading # is a comment.
+# Each line is passed verbatim as arguments to `winget install`, so flags
+# like `-e` (exact id match) are preserved.
+
+--id Microsoft.PowerShell -e
+--id Neovim.Neovim -e
+--id JesseDuffield.lazygit -e
+--id DEVCOM.LuaJIT
+tree-sitter.tree-sitter-cli
+BurntSushi.ripgrep.MSVC
+sharkdp.fd
+fzf
+--id CoreyButler.NVMforWindows -e
+--id wez.wezterm -e

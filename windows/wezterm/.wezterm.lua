@@ -38,21 +38,15 @@ if wezterm.target_triple:match("windows") then
             args = { 'cmd.exe'},
         },
         {
-            label = 'VS 2022 Developer PowerShell',
-            args = {
-                'pwsh.exe',
-                '-noe',
-                '-c',
-                '&{Import-Module """C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\Microsoft.VisualStudio.DevShell.dll"""; Enter-VsDevShell 82e6e2da}'
-            },
-        },
-        {
+            -- finds VS 2026 (any edition) with vswhere, so it works on any machine. the Installer
+            -- folder goes on PATH because the VS dev scripts and native AOT linking call vswhere.exe by name
             label = 'VS 2026 Developer PowerShell',
             args = {
                 'pwsh.exe',
-                '-noe',
-                '-c',
-                '&{Import-Module """C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\Tools\\Microsoft.VisualStudio.DevShell.dll"""; Enter-VsDevShell 116a8295}'
+                '-NoLogo',
+                '-NoExit',
+                '-Command',
+                [[&{$vsi = Join-Path ${env:ProgramFiles(x86)} 'Microsoft Visual Studio\Installer'; $env:PATH = $vsi + ';' + $env:PATH; $vs = vswhere.exe -version '[18.0,19.0)' -products * -latest -property installationPath; Import-Module (Join-Path $vs 'Common7\Tools\Microsoft.VisualStudio.DevShell.dll'); Enter-VsDevShell -VsInstallPath $vs -SkipAutomaticLocation -Arch amd64 -HostArch amd64}]]
             },
         }
     }

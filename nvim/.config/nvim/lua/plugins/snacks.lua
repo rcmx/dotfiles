@@ -32,19 +32,18 @@ return {
                     truncate = 140,
                 },
             },
-
-            notifier = { enabled = true },
-            quickfile = { enabled = true },
-            scope = { enabled = true },
-            scroll = { enabled = true },
-            statuscolumn = { enabled = true },
-            words = { enabled = true },
             sources = {
                 files = { hidden = true },
                 grep = { hidden = true },
                 explorer = { hidden = true },
             },
         },
+        notifier = { enabled = true },
+        quickfile = { enabled = true },
+        scope = { enabled = true },
+        scroll = { enabled = true },
+        statuscolumn = { enabled = true },
+        words = { enabled = true },
     },
     keys = {
         -- Top Pickers & Explorer

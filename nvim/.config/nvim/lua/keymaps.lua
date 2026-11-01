@@ -1,26 +1,19 @@
-vim.keymap.set("i", "jj", "<Esc>", { noremap = true, silent = true })
+vim.keymap.set("i", "jj", "<Esc>", { silent = true })
 
 -- navigation - scrolling
-vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-b>", "<C-b>zz", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-f>", "<C-f>zz", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { silent = true })
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { silent = true })
+vim.keymap.set("n", "<C-b>", "<C-b>zz", { silent = true })
+vim.keymap.set("n", "<C-f>", "<C-f>zz", { silent = true })
 
--- navigation bufers
-vim.keymap.set('n', '<leader>bp', ':bprev<CR>', { desc = 'Goto Previous Buffer', silent = true })
-vim.keymap.set('n', '<leader>bn', ':bnext<CR>', { desc = 'Goto Next Buffer', silent = true })
-vim.keymap.set('n', '<C-left>', ':bprev<CR>', { desc = 'Goto Previous Buffer', silent = true })
-vim.keymap.set('n', '<C-right>', ':bnext<CR>', { desc = 'Goto Next Buffer', silent = true })
+-- navigation - buffers
+vim.keymap.set("n", "<leader>bp", "<cmd>bprev<CR>", { desc = "Goto Previous Buffer" })
+vim.keymap.set("n", "<leader>bn", "<cmd>bnext<CR>", { desc = "Goto Next Buffer" })
+vim.keymap.set("n", "<C-left>", "<cmd>bprev<CR>", { desc = "Goto Previous Buffer" })
+vim.keymap.set("n", "<C-right>", "<cmd>bnext<CR>", { desc = "Goto Next Buffer" })
 
--- navigation code
-vim.keymap.set("n", "]m", "]mzz", { noremap = true, silent = true })
-vim.keymap.set("n", "[m", "[mzz", { noremap = true, silent = true })
+-- navigation - code: ]m / [m live in plugins/treesitter.lua
 
--- windows
-
--- quicklist
-vim.keymap.set("n", "<C-j>", ":cnext<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-k>", ":cprev<CR>", { noremap = true, silent = true })
-
-
-
+-- quickfix list
+vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>", { desc = "Next Quickfix Item" })
+vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>", { desc = "Previous Quickfix Item" })

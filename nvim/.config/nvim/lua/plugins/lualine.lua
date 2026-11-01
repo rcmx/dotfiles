@@ -1,10 +1,6 @@
 return {
-    'nvim-lualine/lualine.nvim',
+    "nvim-lualine/lualine.nvim",
     enabled = not vim.g.vscode,
-
-    dependencies = { 'echasnovski/mini.icons' },
-    config = function()
-        require('lualine').setup()
-    end
+    dependencies = { "echasnovski/mini.icons" },
+    opts = {},
 }
-

@@ -1,22 +1,12 @@
 return {
-    'stevearc/oil.nvim',
+    "stevearc/oil.nvim",
     ---@module 'oil'
     ---@type oil.SetupOpts
     opts = {},
-    -- Optional dependencies
-    dependencies = {
-        {
-            "echasnovski/mini.icons",
-            config = function()
-                require("mini.icons").setup()
-                require("mini.icons").mock_nvim_web_devicons()
-            end,
-        }
-    },
-    -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+    dependencies = { "echasnovski/mini.icons" },
+    -- oil recommends against lazy loading
     lazy = false,
-    config = function()
-        require("oil").setup()
-        vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-    end
+    keys = {
+        { "-", "<cmd>Oil<CR>", desc = "Open parent directory" },
+    },
 }

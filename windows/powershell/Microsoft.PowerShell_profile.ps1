@@ -14,13 +14,16 @@ set-alias -name lg -value lazygit
 
 function prompt {
     $p = $executionContext.SessionState.Path.CurrentLocation
-        $osc7 = ""
-        if ($p.Provider.Name -eq "FileSystem") {
+    $cwd_seq = ""
+    if ($p.Provider.Name -eq "FileSystem") {
         $ansi_escape = [char]27
         $provider_path = $p.ProviderPath -Replace "\\", "/"
-        $osc7 = "$ansi_escape]7;file://${env:COMPUTERNAME}/${provider_path}${ansi_escape}\"
+        # osc 7 reports cwd to wezterm/kitty
+        $cwd_seq = "$ansi_escape]7;file://${env:COMPUTERNAME}/${provider_path}${ansi_escape}\"
+        # windows terminal reads cwd from osc 9;9 instead
+        $cwd_seq += "$ansi_escape]9;9;`"$($p.ProviderPath)`"${ansi_escape}\"
     }
-    "${osc7}PS $p$('>' * ($nestedPromptLevel + 1)) ";
+    "${cwd_seq}PS $p$('>' * ($nestedPromptLevel + 1)) ";
 }
 
 # modules

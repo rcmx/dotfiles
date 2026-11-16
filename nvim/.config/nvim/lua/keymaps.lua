@@ -1,10 +1,15 @@
 vim.keymap.set("i", "jj", "<Esc>", { silent = true })
 
 -- navigation - scrolling
-vim.keymap.set("n", "<C-u>", "<C-u>zz", { silent = true })
-vim.keymap.set("n", "<C-d>", "<C-d>zz", { silent = true })
-vim.keymap.set("n", "<C-b>", "<C-b>zz", { silent = true })
-vim.keymap.set("n", "<C-f>", "<C-f>zz", { silent = true })
+-- Scroll and center in a single :normal! so no WinScrolled fires between the
+-- scroll and the zz. As a plain "<C-f>zz" rhs, snacks.scroll starts animating
+-- after <C-f> and the zz lands on the pre-scroll view (<C-f>/<C-b> only).
+for _, key in ipairs({ "<C-u>", "<C-d>", "<C-b>", "<C-f>" }) do
+  local keys = vim.keycode(key) .. "zz"
+  vim.keymap.set("n", key, function()
+    vim.cmd.normal({ (vim.v.count > 0 and vim.v.count or "") .. keys, bang = true })
+  end, { silent = true })
+end
 
 -- navigation - buffers
 vim.keymap.set("n", "<leader>bp", "<cmd>bprev<CR>", { desc = "Goto Previous Buffer" })

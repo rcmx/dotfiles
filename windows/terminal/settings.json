@@ -4,22 +4,22 @@
     "actions":
     [
         {
-            "id": "User.PrevTabDirect",
-            "name": "Previous tab (direct)",
             "command":
             {
                 "action": "prevTab",
                 "tabSwitcherMode": "disabled"
-            }
+            },
+            "id": "User.PrevTabDirect",
+            "name": "Previous tab (direct)"
         },
         {
-            "id": "User.NextTabDirect",
-            "name": "Next tab (direct)",
             "command":
             {
                 "action": "nextTab",
                 "tabSwitcherMode": "disabled"
-            }
+            },
+            "id": "User.NextTabDirect",
+            "name": "Next tab (direct)"
         }
     ],
     "copyFormatting": "none",
@@ -27,6 +27,14 @@
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
     "keybindings":
     [
+        {
+            "id": "User.NextTabDirect",
+            "keys": "ctrl+shift+right"
+        },
+        {
+            "id": "User.PrevTabDirect",
+            "keys": "ctrl+shift+left"
+        },
         {
             "id": "Terminal.DuplicatePaneAuto",
             "keys": "alt+shift+d"
@@ -42,14 +50,6 @@
         {
             "id": "Terminal.PasteFromClipboard",
             "keys": "ctrl+v"
-        },
-        {
-            "id": "User.PrevTabDirect",
-            "keys": "ctrl+shift+left"
-        },
-        {
-            "id": "User.NextTabDirect",
-            "keys": "ctrl+shift+right"
         }
     ],
     "newTabMenu":
@@ -145,6 +145,12 @@
                 "icon": null,
                 "name": "Ubuntu",
                 "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc"
+            },
+            {
+                "guid": "{171b777b-c3e1-5adc-ac93-509c7cdf6c92}",
+                "hidden": false,
+                "name": "rancher-desktop",
+                "source": "Microsoft.WSL"
             }
         ]
     },
